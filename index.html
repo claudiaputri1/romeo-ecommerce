@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="styles.css" />
+    <title>ROMEO - Marketplace Barang Bekas Berkualitas</title>
+    <style>
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .nav-brand img {
+        height: 50px;
+        width: 50px;
+        object-fit: contain;
+      }
+      .nav-brand h2 {
+        color: var(--clr-primary-5);
+        font-weight: bold;
+        margin: 0;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+      }
+      @media screen and (max-width: 799px) {
+        .nav-brand {
+          position: static;
+          transform: none;
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="nav-center">
+        <!-- links -->
+        <div>
+          <button class="toggle-nav">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li>
+              <a href="index.html" class="nav-link">
+                beranda
+              </a>
+            </li>
+            <li>
+              <a href="products.html" class="nav-link">
+                produk
+              </a>
+            </li>
+            <li>
+              <a href="about.html" class="nav-link">
+                tentang
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Logo ROMEO -->
+        <div class="nav-brand">
+          <img src="images/logo.jpeg" alt="ROMEO Logo" />
+          <h2>ROMEO</h2>
+        </div>
+        <div class="toggle-container">
+          <button class="toggle-cart">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+          <span class="cart-item-count">0</span>
+        </div>
+      </div>
+    </nav>
+    <!-- hero -->
+    <section class="hero">
+      <div class="hero-container">
+        <h1 class="text-slanted">
+         Selamat Datang di ROMEO
+        </h1>
+        <h3>Marketplace Barang Bekas Berkualitas - Konsumsi Bertanggung Jawab</h3>
+        <a href="products.html" class="hero-btn">
+          belanja sekarang
+        </a>
+      </div>
+    </section>
+    <!-- sidebar -->
+    <div class="sidebar-overlay">
+      <aside class="sidebar">
+        <!-- close -->
+        <button class="sidebar-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <!-- links -->
+        <ul class="sidebar-links">
+          <li>
+            <a href="index.html" class="sidebar-link">
+              <i class="fas fa-home fa-fw"></i>
+              beranda
+            </a>
+          </li>
+          <li>
+            <a href="products.html" class="sidebar-link">
+              <i class="fas fa-recycle fa-fw"></i>
+              produk
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="sidebar-link">
+              <i class="fas fa-book fa-fw"></i>
+              tentang
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <!-- cart -->
+    <div class="cart-overlay">
+      <aside class="cart">
+        <button class="cart-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <header>
+          <h3 class="text-slanted">keranjang belanja</h3>
+        </header>
+        <!-- cart items -->
+        <div class="cart-items"></div>
+        <!-- footer -->
+        <footer>
+          <h3 class="cart-total text-slanted">
+            total : Rp 0
+          </h3>
+          <button class="cart-checkout btn">checkout</button>
+        </footer>
+      </aside>
+    </div>
+    <!-- featured products -->
+    <section class="section featured">
+      <div class="title">
+        <h2><span></span> Produk Pilihan</h2>
+      </div>
+      <div class="featured-center section-center">
+        <h2 class="section-loading">
+          memuat produk...
+        </h2>
+      </div>
+      <a href="products.html" class="btn">
+        lihat semua produk
+      </a>
+    </section>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
