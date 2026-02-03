@@ -2,6 +2,7 @@
 import '../toggleSidebar.js';
 import '../cart/toggleCart.js';
 import '../cart/setupCart.js';
+import '../auth/navAuth.js';
 // specific
 import { addToCart } from '../cart/setupCart.js';
 import { getElement, formatPrice } from '../utils.js';

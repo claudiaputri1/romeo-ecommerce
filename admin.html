@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | ROMEO</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="admin-page">
+    <nav class="navbar page">
+      <div class="nav-center">
+        <div class="nav-brand">
+          <img src="images/logo.jpeg" alt="ROMEO Logo" />
+          <h2>ROMEO</h2>
+        </div>
+
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li>
+              <a href="index.html" class="nav-link">Beranda</a>
+            </li>
+            <li>
+              <a href="products.html" class="nav-link">Produk</a>
+            </li>
+            <li>
+              <a href="about.html" class="nav-link">Tentang</a>
+            </li>
+            <li>
+              <a href="admin.html" class="nav-link">Admin</a>
+            </li>
+          </ul>
+
+          <div class="admin-actions">
+            <span class="admin-user" id="adminUser"></span>
+            <button class="btn" id="adminLogoutBtn" type="button">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="section-center admin-container">
+        <div class="admin-card" id="adminLoginCard">
+          <h3>Login Admin</h3>
+          <form class="admin-form" id="adminLoginForm">
+            <label class="admin-label" for="adminEmail">Email</label>
+            <input class="admin-input" id="adminEmail" type="email" autocomplete="email" required />
+
+            <label class="admin-label" for="adminPassword">Password</label>
+            <input class="admin-input" id="adminPassword" type="password" autocomplete="current-password" required />
+
+            <button class="btn admin-submit" type="submit">Masuk</button>
+          </form>
+          <p class="admin-hint" id="adminLoginHint"></p>
+        </div>
+
+        <div class="admin-panel" id="adminPanel" hidden>
+          <div class="admin-grid">
+            <div class="admin-card">
+              <div class="admin-card-header">
+                <h3 id="productFormTitle">Tambah Produk</h3>
+                <button class="btn admin-secondary" id="productFormResetBtn" type="button">Reset</button>
+              </div>
+
+              <form class="admin-form" id="productForm">
+                <input id="productId" type="hidden" />
+
+                <label class="admin-label" for="name">Nama</label>
+                <input class="admin-input" id="name" type="text" required />
+
+                <label class="admin-label" for="company">Company</label>
+                <input class="admin-input" id="company" type="text" required />
+
+                <label class="admin-label" for="category">Kategori</label>
+                <input class="admin-input" id="category" type="text" required />
+
+                <label class="admin-label" for="price">Harga</label>
+                <input class="admin-input" id="price" type="number" min="0" step="1" required />
+
+                <label class="admin-label" for="image">Gambar</label>
+                <div class="image-upload-container">
+                  <input class="admin-input" id="image" type="text" placeholder="URL gambar atau upload file" />
+                  <div class="image-upload-area" id="imageUploadArea">
+                    <input type="file" id="imageFile" accept="image/*" hidden />
+                    <div class="upload-placeholder">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                      <p>Klik atau drag gambar ke sini</p>
+                      <small>Maks: 5MB, format: JPG, PNG, GIF</small>
+                    </div>
+                    <div class="image-preview" id="imagePreview">
+                      <img src="" alt="Preview" id="previewImg" />
+                      <button type="button" class="remove-image" id="removeImage">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <label class="admin-label" for="description">Deskripsi</label>
+                <textarea class="admin-textarea" id="description" rows="4" required></textarea>
+
+                <div class="admin-row">
+                  <label class="admin-checkbox">
+                    <input id="shipping" type="checkbox" />
+                    Shipping
+                  </label>
+                  <label class="admin-checkbox">
+                    <input id="featured" type="checkbox" />
+                    Featured
+                  </label>
+                </div>
+
+                <button class="btn admin-submit" type="submit" id="productSubmitBtn">Simpan</button>
+              </form>
+              <p class="admin-hint" id="productFormHint"></p>
+            </div>
+
+            <div class="admin-card">
+              <div class="admin-card-header">
+                <h3>Produk</h3>
+                <button class="btn admin-secondary" id="refreshProductsBtn" type="button">Refresh</button>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Nama</th>
+                      <th>Harga</th>
+                      <th>Company</th>
+                      <th>Kategori</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="productsTbody"></tbody>
+                </table>
+              </div>
+
+              <p class="admin-hint" id="productsHint"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="./src/pages/admin.js"></script>
+  </body>
+</html>

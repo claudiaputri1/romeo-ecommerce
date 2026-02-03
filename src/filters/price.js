@@ -5,6 +5,14 @@ const setupPrice = (store) => {
   const priceInput = getElement('.price-filter');
   const priceValue = getElement('.price-value');
 
+  if (!Array.isArray(store) || store.length === 0) {
+    priceInput.value = 0;
+    priceInput.max = 0;
+    priceInput.min = 0;
+    priceValue.textContent = `Nilai: ${formatPrice(0)}`;
+    return;
+  }
+
   // setup filter
   let maxPrice = store.map((product) => product.price);
   maxPrice = Math.max(...maxPrice);

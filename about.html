@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About us</title>
+    <title>Tentang | ROMEO</title>
     <!-- font-awesome -->
     <link
       rel="stylesheet"
@@ -18,42 +18,59 @@
     <!-- navbar -->
     <nav class="navbar page">
       <div class="nav-center">
-        <!-- links -->
-        <div>
-          <button class="toggle-nav">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links">
-            <li>
-              <a href="index.html" class="nav-link">
-                home
-              </a>
-            </li>
-            <li>
-              <a href="products.html" class="nav-link">
-                products
-              </a>
-            </li>
-            <li>
-              <a href="about.html" class="nav-link">
-                about
-              </a>
-            </li>
-          </ul>
+        <div class="nav-brand">
+          <img src="images/logo.jpeg" alt="ROMEO Logo" />
+          <h2>ROMEO</h2>
         </div>
- 
-        <div class="toggle-container">
-          <button class="toggle-cart">
-            <i class="fas fa-shopping-cart"></i>
-          </button>
-          <span class="cart-item-count">1</span>
+
+        <div class="nav-right">
+          <!-- links -->
+          <div>
+            <button class="toggle-nav">
+              <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+              <li>
+                <a href="index.html" class="nav-link">
+                  Beranda
+                </a>
+              </li>
+              <li>
+                <a href="products.html" class="nav-link">
+                  Produk
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">
+                  Tentang
+                </a>
+              </li>
+              <li>
+                <a href="login.html" class="nav-link auth-link" data-auth-label-login="Login" data-auth-label-logout="Logout" hidden>
+                  Login
+                </a>
+              </li>
+              <li>
+                <a href="admin.html" class="nav-link admin-link" hidden>
+                  Admin
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="toggle-container">
+            <button class="toggle-cart">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            <span class="cart-item-count">0</span>
+          </div>
         </div>
       </div>
     </nav>
     <!-- hero -->
     <section class="page-hero">
       <div class="section-center">
-        <h3 class="page-hero-title">Home / About</h3>
+        <h3 class="page-hero-title">Beranda / Tentang</h3>
       </div>
     </section>
     <!-- sidebar -->
@@ -68,19 +85,31 @@
           <li>
             <a href="index.html" class="sidebar-link">
               <i class="fas fa-home fa-fw"></i>
-              home
+              Beranda
             </a>
           </li>
           <li>
             <a href="products.html" class="sidebar-link">
               <i class="fas fa-couch fa-fw"></i>
-              products
+              Produk
             </a>
           </li>
           <li>
             <a href="about.html" class="sidebar-link">
               <i class="fas fa-book fa-fw"></i>
-              about
+              Tentang
+            </a>
+          </li>
+          <li>
+            <a href="login.html" class="sidebar-link auth-link" data-auth-label-login="Login" data-auth-label-logout="Logout" hidden>
+              <i class="fas fa-user fa-fw"></i>
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="admin.html" class="sidebar-link admin-link" hidden>
+              <i class="fas fa-user-shield fa-fw"></i>
+              Admin
             </a>
           </li>
         </ul>
@@ -108,20 +137,39 @@
     </div>
     <!-- about -->
     <section class="section section-center about-page">
-      <div class="title">
-        <h2><span></span> Our history</h2>
+      <header class="about-header">
+        <h2 class="about-title">Tentang ROMEO</h2>
+        <p class="about-lead">
+          ROMEO (Recycle & Market of Economy Objects) adalah platform e-commerce berbasis web yang memfasilitasi jual beli barang rosok dan barang bekas secara digital.
+        </p>
+      </header>
+
+      <div class="about-content">
+        <p class="about-text">
+          ROMEO hadir sebagai solusi untuk mengoptimalkan nilai ekonomi barang bekas sekaligus mendukung pengelolaan lingkungan yang berkelanjutan melalui pemanfaatan teknologi web.
+        </p>
+
+        <div class="about-cards">
+          <article class="about-card">
+            <h3 class="about-card-title">Visi</h3>
+            <p class="about-card-text">
+              Menjadi platform yang mendorong konsumsi bertanggung jawab melalui pemanfaatan kembali barang bekas yang masih layak.
+            </p>
+          </article>
+          <article class="about-card">
+            <h3 class="about-card-title">Misi</h3>
+            <p class="about-card-text">
+              Memudahkan masyarakat menemukan, menjual, dan membeli barang bekas berkualitas dengan proses yang aman dan transparan.
+            </p>
+          </article>
+          <article class="about-card">
+            <h3 class="about-card-title">Cara Kerja</h3>
+            <p class="about-card-text">
+              Jelajahi produk, cari sesuai kebutuhan, lalu tambahkan ke keranjang untuk checkout.
+            </p>
+          </article>
+        </div>
       </div>
-      <p class="about-text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
-        accusantium sapiente tempora sed dolore esse deserunt eaque excepturi,
-        delectus error accusamus vel eligendi, omnis beatae. Quisquam, dicta.
-        Eos quod quisquam esse recusandae vitae neque dolore, obcaecati incidunt
-        sequi blanditiis est exercitationem molestiae delectus saepe odio
-        eligendi modi porro eaque in libero minus unde sapiente consectetur
-        architecto. Ullam rerum, nemo iste ex, eaque perspiciatis nisi, eum
-        totam velit saepe sed quos similique amet. Ex, voluptate accusamus
-        nesciunt totam vitae esse iste.
-      </p>
     </section>
     <script type="module" src="./src/pages/about.js"></script>
   </body>

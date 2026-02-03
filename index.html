@@ -11,74 +11,59 @@
 
     <!-- styles css -->
     <link rel="stylesheet" href="styles.css" />
-    <title>ROMEO - Marketplace Barang Bekas Berkualitas</title>
-    <style>
-      .nav-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .nav-brand img {
-        height: 50px;
-        width: 50px;
-        object-fit: contain;
-      }
-      .nav-brand h2 {
-        color: var(--clr-primary-5);
-        font-weight: bold;
-        margin: 0;
-        font-size: 1.8rem;
-        letter-spacing: 2px;
-      }
-      @media screen and (max-width: 799px) {
-        .nav-brand {
-          position: static;
-          transform: none;
-          margin-bottom: 1rem;
-        }
-      }
-    </style>
+    <title>ROMEO - Recycle & Market of Economy Objects</title>
   </head>
   <body>
     <!-- navbar -->
     <nav class="navbar">
       <div class="nav-center">
-        <!-- links -->
-        <div>
-          <button class="toggle-nav">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links">
-            <li>
-              <a href="index.html" class="nav-link">
-                beranda
-              </a>
-            </li>
-            <li>
-              <a href="products.html" class="nav-link">
-                produk
-              </a>
-            </li>
-            <li>
-              <a href="about.html" class="nav-link">
-                tentang
-              </a>
-            </li>
-          </ul>
-        </div>
         <!-- Logo ROMEO -->
         <div class="nav-brand">
           <img src="images/logo.jpeg" alt="ROMEO Logo" />
           <h2>ROMEO</h2>
         </div>
-        <div class="toggle-container">
-          <button class="toggle-cart">
-            <i class="fas fa-shopping-cart"></i>
-          </button>
-          <span class="cart-item-count">0</span>
+
+        <div class="nav-right">
+          <!-- links -->
+          <div>
+            <button class="toggle-nav">
+              <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+              <li>
+                <a href="index.html" class="nav-link">
+                  beranda
+                </a>
+              </li>
+              <li>
+                <a href="products.html" class="nav-link">
+                  produk
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">
+                  tentang
+                </a>
+              </li>
+              <li>
+                <a href="login.html" class="nav-link auth-link" data-auth-label-login="login" data-auth-label-logout="logout" hidden>
+                  login
+                </a>
+              </li>
+              <li>
+                <a href="admin.html" class="nav-link admin-link" hidden>
+                  admin
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="toggle-container">
+            <button class="toggle-cart">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            <span class="cart-item-count">0</span>
+          </div>
         </div>
       </div>
     </nav>
@@ -119,6 +104,18 @@
             <a href="about.html" class="sidebar-link">
               <i class="fas fa-book fa-fw"></i>
               tentang
+            </a>
+          </li>
+          <li>
+            <a href="login.html" class="sidebar-link auth-link" data-auth-label-login="login" data-auth-label-logout="logout" hidden>
+              <i class="fas fa-user fa-fw"></i>
+              login
+            </a>
+          </li>
+          <li>
+            <a href="admin.html" class="sidebar-link admin-link" hidden>
+              <i class="fas fa-user-shield fa-fw"></i>
+              admin
             </a>
           </li>
         </ul>

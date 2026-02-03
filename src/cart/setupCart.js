@@ -1,17 +1,24 @@
 import {
-  getStorageItem,
-  setStorageItem,
+  getUserStorageItem,
+  setUserStorageItem,
   formatPrice,
   getElement,
 } from '../utils.js';
 import { openCart } from './toggleCart.js';
 import { findProduct } from '../store.js';
+import { auth, onAuthStateChanged } from '../firebaseconfig.js';
 
 const cartItemCountDOM = getElement('.cart-item-count');
 const cartItemsDOM = getElement('.cart-items');
 const cartTotalDOM = getElement('.cart-total');
 
-let cart = getStorageItem('cart');
+let cart = getUserStorageItem('cart');
+
+// Function to reload cart data for current user
+const reloadCart = () => {
+  cart = getUserStorageItem('cart');
+  console.log('Reloaded cart data:', cart.length, 'items for current user');
+};
 
 export const addToCart = (id) => {
   let item = cart.find((cartItem) => cartItem.id === id);
@@ -30,7 +37,7 @@ export const addToCart = (id) => {
 
   displayCartItemCount();
   displayCartTotal();
-  setStorageItem('cart', cart);
+  setUserStorageItem('cart', cart); // Fix cart storage call to use correct function name
   openCart();
 };
 
@@ -109,7 +116,7 @@ function setupCartFunctionality() {
 
     displayCartItemCount();
     displayCartTotal();
-    setStorageItem('cart', cart);
+    setUserStorageItem('cart', cart);
   });
 }
 
@@ -142,11 +149,29 @@ function decreaseAmount(id) {
   return newAmount;
 }
 
+const refreshCart = () => {
+  // Clear current cart display
+  cartItemsDOM.innerHTML = '';
+  // Reload cart for current user
+  reloadCart();
+  displayCartItemCount();
+  displayCartTotal();
+  displayCartItemsDOM();
+};
+
 const init = () => {
   displayCartItemCount();
   displayCartTotal();
   displayCartItemsDOM();
   setupCartFunctionality();
+  
+  // Listen for auth state changes to refresh cart
+  onAuthStateChanged(auth, (user) => {
+    // Add small delay to ensure localStorage is updated
+    setTimeout(() => {
+      refreshCart();
+    }, 100);
+  });
 };
 
 init();

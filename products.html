@@ -9,77 +9,60 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     />
-
     <!-- styles css -->
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .nav-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .nav-brand img {
-        height: 50px;
-        width: 50px;
-        object-fit: contain;
-      }
-      .nav-brand h2 {
-        color: var(--clr-primary-5);
-        font-weight: bold;
-        margin: 0;
-        font-size: 1.8rem;
-        letter-spacing: 2px;
-      }
-      @media screen and (max-width: 799px) {
-        .nav-brand {
-          position: static;
-          transform: none;
-        }
-      }
-    </style>
   </head>
   <body>
     <!-- navbar -->
     <nav class="navbar page">
       <div class="nav-center">
-        <!-- links -->
-        <div>
-          <button class="toggle-nav">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links">
-            <li>
-              <a href="index.html" class="nav-link">
-                beranda
-              </a>
-            </li>
-            <li>
-              <a href="products.html" class="nav-link">
-                produk
-              </a>
-            </li>
-            <li>
-              <a href="about.html" class="nav-link">
-                tentang
-              </a>
-            </li>
-          </ul>
-        </div>
-
         <!-- Logo ROMEO -->
         <div class="nav-brand">
           <img src="images/logo.jpeg" alt="ROMEO Logo" />
           <h2>ROMEO</h2>
         </div>
 
-        <div class="toggle-container">
-          <button class="toggle-cart">
-            <i class="fas fa-shopping-cart"></i>
-          </button>
-          <span class="cart-item-count">0</span>
+        <div class="nav-right">
+          <!-- links -->
+          <div>
+            <button class="toggle-nav">
+              <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+              <li>
+                <a href="index.html" class="nav-link">
+                  beranda
+                </a>
+              </li>
+              <li>
+                <a href="products.html" class="nav-link">
+                  produk
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">
+                  tentang
+                </a>
+              </li>
+              <li>
+                <a href="login.html" class="nav-link auth-link" data-auth-label-login="login" data-auth-label-logout="logout" hidden>
+                  login
+                </a>
+              </li>
+              <li>
+                <a href="admin.html" class="nav-link admin-link" hidden>
+                  admin
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="toggle-container">
+            <button class="toggle-cart">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            <span class="cart-item-count">0</span>
+          </div>
         </div>
       </div>
     </nav>
@@ -116,6 +99,18 @@
               tentang
             </a>
           </li>
+          <li>
+            <a href="login.html" class="sidebar-link auth-link" data-auth-label-login="login" data-auth-label-logout="logout" hidden>
+              <i class="fas fa-user fa-fw"></i>
+              login
+            </a>
+          </li>
+          <li>
+            <a href="admin.html" class="sidebar-link admin-link" hidden>
+              <i class="fas fa-user-shield fa-fw"></i>
+              admin
+            </a>
+          </li>
         </ul>
       </aside>
     </div>
@@ -145,20 +140,21 @@
       <div class="filters">
         <div class="filters-container">
           <!-- search -->
-          <form class="input-form">
-            <input type="text" class="search-input" placeholder="cari produk..." />
-          </form>
+          <div class="search-wrapper">
+            <form class="search-form">
+              <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Cari produk..." />
+              </div>
+            </form>
+          </div>
           <!-- categories/companies -->
-          <h4>Kategori</h4>
-          <article class="companies">
-            <button class="company-btn">semua</button>
-          </article>
-          <!-- price -->
-          <h4>Harga</h4>
-          <form class="price-form">
-            <input type="range" class="price-filter" min="0" value="50000" max="100000" />
-          </form>
-          <p class="price-value"></p>
+          <div class="categories-section">
+            <h4>Kategori</h4>
+            <article class="companies">
+              <button class="company-btn">semua</button>
+            </article>
+          </div>
         </div>
       </div>
       <!-- products -->
