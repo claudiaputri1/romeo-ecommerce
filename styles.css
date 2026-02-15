@@ -951,7 +951,7 @@ Admin Page
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
-  min-width: 600px;
+  min-width: 500px;
 }
 
 .admin-table th,
@@ -1125,7 +1125,9 @@ Admin Page
   
   .admin-table {
     font-size: 0.8rem;
-    min-width: 400px;
+    min-width: 300px;
+    width: 100%;
+    overflow-x: auto;
   }
   
   .admin-table th,

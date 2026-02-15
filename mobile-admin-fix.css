@@ -1,0 +1,32 @@
+/* Mobile Admin Table Fix */
+@media screen and (max-width: 767px) {
+  .admin-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .admin-table {
+    min-width: 280px !important;
+    width: 100% !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 0.3rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .admin-actions-cell {
+    flex-direction: column !important;
+    gap: 0.2rem !important;
+  }
+  
+  .admin-secondary,
+  .admin-danger {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+}
