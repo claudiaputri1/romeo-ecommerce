@@ -1054,7 +1054,7 @@ Admin Page
   }
   
   section {
-    padding: 0;
+    padding: 1rem;
     margin: 0;
     width: 100%;
   }
@@ -1074,7 +1074,7 @@ Admin Page
   }
   
   .admin-card {
-    padding: 0.5rem;
+    padding: 0.25rem;
     margin: 0 0;
     width: 100%;
     box-sizing: border-box;
