@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email == "admin@gmail.com";
+    }
+
+    function isValidProduct(data) {
+      return data.keys().hasAll([
+          "name",
+          "company",
+          "price",
+          "description",
+          "category",
+          "shipping",
+          "image",
+          "featured"
+        ])
+        && data.name is string
+        && data.name.size() > 0
+        && data.company is string
+        && data.company.size() > 0
+        && data.category is string
+        && data.category.size() > 0
+        && data.description is string
+        && data.description.size() > 0
+        && data.image is string
+        && data.image.size() > 0
+        && data.price is number
+        && data.price >= 0
+        && data.shipping is bool
+        && data.featured is bool;
+    }
+
+    match /products/{productId} {
+      // siapa saja boleh lihat produk
+      allow read: if true;
+
+      // hanya admin boleh create/update dengan validasi schema
+      allow create, update: if isAdmin() && isValidProduct(request.resource.data);
+
+      // hanya admin boleh delete
+      allow delete: if isAdmin();
+    }
+
+    // default: blok semua koleksi lain
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
