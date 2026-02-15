@@ -18,10 +18,10 @@ const init = async () => {
     const featured = store.filter((product) => product.featured === true);
     display(featured, getElement('.featured-center'));
     if (!featured.length) {
-      featuredCenter.innerHTML = `<h3 class="filter-error">Belum ada produk.</h3>`;
+      featuredCenter.innerHTML = `<h3 class="filter-error">Belum ada produk unggulan.</h3>`;
     }
   } else {
-    featuredCenter.innerHTML = `<h3 class="filter-error">Belum ada produk.</h3>`;
+    featuredCenter.innerHTML = `<h3 class="filter-error">Belum ada produk unggulan.</h3>`;
   }
 };
 

@@ -2,7 +2,7 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Admin | ROMEO</title>
     <link
       rel="stylesheet"
@@ -20,20 +20,25 @@
         </div>
 
         <div class="nav-right">
-          <ul class="nav-links">
-            <li>
-              <a href="index.html" class="nav-link">Beranda</a>
-            </li>
-            <li>
-              <a href="products.html" class="nav-link">Produk</a>
-            </li>
-            <li>
-              <a href="about.html" class="nav-link">Tentang</a>
-            </li>
-            <li>
-              <a href="admin.html" class="nav-link">Admin</a>
-            </li>
-          </ul>
+          <div>
+            <button class="toggle-nav">
+              <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+              <li>
+                <a href="index.html" class="nav-link">Beranda</a>
+              </li>
+              <li>
+                <a href="products.html" class="nav-link">Produk</a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">Tentang</a>
+              </li>
+              <li>
+                <a href="admin.html" class="nav-link">Admin</a>
+              </li>
+            </ul>
+          </div>
 
           <div class="admin-actions">
             <span class="admin-user" id="adminUser"></span>
@@ -43,23 +48,46 @@
       </div>
     </nav>
 
+    <!-- sidebar -->
+    <div class="sidebar-overlay">
+      <aside class="sidebar">
+        <!-- close -->
+        <button class="sidebar-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <!-- links -->
+        <ul class="sidebar-links">
+          <li>
+            <a href="index.html" class="sidebar-link">
+              <i class="fas fa-home fa-fw"></i>
+              beranda
+            </a>
+          </li>
+          <li>
+            <a href="products.html" class="sidebar-link">
+              <i class="fas fa-recycle fa-fw"></i>
+              produk
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="sidebar-link">
+              <i class="fas fa-book fa-fw"></i>
+              tentang
+            </a>
+          </li>
+          <li>
+            <a href="admin.html" class="sidebar-link">
+              <i class="fas fa-user-shield fa-fw"></i>
+              admin
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
     <section class="section">
       <div class="section-center admin-container">
-        <div class="admin-card" id="adminLoginCard">
-          <h3>Login Admin</h3>
-          <form class="admin-form" id="adminLoginForm">
-            <label class="admin-label" for="adminEmail">Email</label>
-            <input class="admin-input" id="adminEmail" type="email" autocomplete="email" required />
-
-            <label class="admin-label" for="adminPassword">Password</label>
-            <input class="admin-input" id="adminPassword" type="password" autocomplete="current-password" required />
-
-            <button class="btn admin-submit" type="submit">Masuk</button>
-          </form>
-          <p class="admin-hint" id="adminLoginHint"></p>
-        </div>
-
-        <div class="admin-panel" id="adminPanel" hidden>
+        <div class="admin-panel" id="adminPanel">
           <div class="admin-grid">
             <div class="admin-card">
               <div class="admin-card-header">
@@ -148,6 +176,7 @@
       </div>
     </section>
 
+    <script type="module" src="./src/toggleSidebar.js"></script>
     <script type="module" src="./src/pages/admin.js"></script>
   </body>
 </html>

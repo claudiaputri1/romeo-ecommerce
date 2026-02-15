@@ -1,7 +1,6 @@
 import {
   auth,
   db,
-  signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
   collection,
@@ -18,12 +17,6 @@ const $ = (id) => document.getElementById(id);
 
 const adminUserEl = $('adminUser');
 const adminLogoutBtn = $('adminLogoutBtn');
-
-const adminLoginCard = $('adminLoginCard');
-const adminLoginForm = $('adminLoginForm');
-const adminEmail = $('adminEmail');
-const adminPassword = $('adminPassword');
-const adminLoginHint = $('adminLoginHint');
 
 const adminPanel = $('adminPanel');
 
@@ -158,20 +151,6 @@ const refreshProducts = async () => {
   }
 };
 
-adminLoginForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  setHint(adminLoginHint, '');
-
-  try {
-    const email = adminEmail.value.trim();
-    const password = adminPassword.value;
-    await signInWithEmailAndPassword(auth, email, password);
-  } catch (err) {
-    console.log(err);
-    setHint(adminLoginHint, 'Login gagal. Pastikan email/password benar.');
-  }
-});
-
 adminLogoutBtn.addEventListener('click', async () => {
   await signOut(auth);
   window.location.href = 'index.html';
@@ -269,17 +248,15 @@ productsTbody.addEventListener('click', async (e) => {
   }
 });
 
+// Auth state check - redirect non-admin users
 onAuthStateChanged(auth, async (user) => {
   if (!requireAdmin(user)) {
-    adminUserEl.textContent = '';
-    adminLoginCard.hidden = false;
-    adminPanel.hidden = true;
+    // Redirect to login page if not admin
+    window.location.href = 'login.html';
     return;
   }
 
   adminUserEl.textContent = user.email;
-  adminLoginCard.hidden = true;
-  adminPanel.hidden = false;
   clearProductForm();
   await refreshProducts();
 });
